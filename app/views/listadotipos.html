@@ -1,0 +1,37 @@
+<h1>Listado Pokemon</h1>
+<div>
+<table class="table table-bordered table-hover table-striped">
+  <tr class="danger">
+    <td colspan="2"><strong>Buscar</strong></td>
+  </tr>
+  <tr>
+    <td>Nombre</td>
+    <td><input type="text" class="form-control"  ng-model="buscar.name"></td>
+  </tr>
+  <tr>
+    <td>Tipo</td>
+    <td>
+      <select id="tipo" name="tipo" class="form-control"  ng-model="buscar.type" ng-options="type.url.split('/')[6] as type.name for type in types" ng-change="pokemonTipos(buscar.type)">
+        <option value="0">Seleccione Tipo</option>
+      </select>
+    </td>
+  </tr>
+</table>
+<br>
+<div class="row" id="listPokemons">
+  <div class="col-xs-8 col-md-8" ng-repeat="pokemon in pokemons | filter:buscar">
+    <table class="table table-bordered table-hover table-striped">
+      <tbody>
+        <tr class="danger">
+
+          <td>{{ pokemon.name }}</td>
+          <td width="400px"><a href="#/detalle/{{pokemon.url.split('/')[6] }}">{{ "seleccionar" }}</a></td>
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+
+

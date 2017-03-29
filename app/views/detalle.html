@@ -1,0 +1,65 @@
+<h1>Detalles</h1>
+<div ng-repeat="pokemon in datos">
+  <table class="table table-bordered table-hover table-striped">
+    <tbody>
+      <tr class="danger">
+        <td align="center" style="width:60%">
+          <img ng-src="{{ pokemon.sprites.front_default }}" alt="" >
+          <p><strong><h2>{{ pokemon.name }}</h2></strong></p>
+          <div ng-repeat="especie in especies">
+            <p align="justify">{{ especie.flavor_text_entries[3].flavor_text }}</p>
+
+          </div>
+        </td>
+        
+  
+            <tr class="danger">
+              <td><strong>Habilidades</strong></td>
+            </tr>
+            <tr>
+              <td>
+                <ul ng-repeat="abilitie in pokemon.abilities">
+                  <li>{{ abilitie.ability.name }}</li>
+                </ul>
+              </td>
+            </tr>
+
+            <tr class="danger">
+              <td><strong>Tipos</strong></td>
+            </tr>
+            <tr>
+              <td>
+                <ul ng-repeat="types in pokemon.types">
+                  <li><a href="#/listadotipos/{{ types.type.url.split('/')[6] }}">{{ types.type.name }}</a></li>
+                </ul>
+              </td>
+            </tr>
+              <tr class="danger">
+              <td><strong>Especie</strong></td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>{{ pokemon.species.name }}</li>
+                </ul>
+              </td>
+            </tr>
+            <tr class="danger">
+              <td><strong>Evoluciones</strong></td>
+            </tr>
+            <tr>
+              <td>
+                <ul ng-repeat="evolucion in evoluciones">
+                  <li><a href="#/detalle/{{ evolucion.id }}">{{ evolucion.name }}</a></li>
+                </ul>
+              </td>
+            </tr>
+      
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<table class="table table-bordered table-hover table-striped">
+  <tr class="danger">
